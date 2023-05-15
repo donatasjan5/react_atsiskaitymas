@@ -9,12 +9,16 @@ import NavBar from "./components/NavBar/NavBar";
 const App = () => {
 
   const [currentForm, setCurrentForm] = useState('login')
+
+  const toggleForm = (formName) => {
+setCurrentForm(formName)
+  }
   
   return (
     <>
         <NavBar />
       <Routes>
-        <Route path="/login" element={ currentForm === 'login' ? <Login /> : <Register /> } />
+        <Route path="/login" element={ currentForm === 'login' ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm} /> } />
         <Route path="/register" element ={<Register />} />
       </Routes>
     </>
