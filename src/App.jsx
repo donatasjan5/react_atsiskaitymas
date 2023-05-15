@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import Login from "./components/Login/Login";
+import { Login } from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Home from "./components/Home/Home";
 import Add from "./Add/Add";
 import NavBar from "./components/NavBar/NavBar";
+
+import { AuthProvider } from "./components/auth/Auth";
+import { Profile } from "./components/Profile/Profile";
 
 const App = () => {
   const [currentForm, setCurrentForm] = useState("login");
@@ -35,22 +38,25 @@ const App = () => {
 
   return (
     <>
-      <NavBar />
-      <Routes>
-        <Route
-          path="/login"
-          element={
-            currentForm === "login" ? (
-              <Login onFormSwitch={toggleForm} />
-            ) : (
-              <Register onFormSwitch={toggleForm} />
-            )
-          }
-        />
-        <Route path="/register" element={<Register />} />
-        <Route path="/" element={<Home items={items} loading={loading} />} />
-        <Route path="/add" element={<Add onAdd={handleAddItems} />} />
-      </Routes>
+      <AuthProvider>
+        <NavBar />
+        <Routes>
+          <Route
+            path="/login"
+            element={
+              currentForm === "login" ? (
+                <Login onFormSwitch={toggleForm} />
+              ) : (
+                <Register onFormSwitch={toggleForm} />
+              )
+            }
+          />
+          <Route path="/register" element={<Register />} />
+          <Route path="/" element={<Home items={items} loading={loading} />} />
+          {/* <Route path="/profile" element={<Profile />} /> */}
+          <Route path="/add" element={<Add onAdd={handleAddItems} />} />
+        </Routes>
+      </AuthProvider>
     </>
   );
 };

@@ -1,42 +1,28 @@
-import React, { useState } from "react";
-import "./Login.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../auth/Auth";
 
-function Login(props) {
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
+export const Login = () => {
+  const [user, setUser] = useState("");
+  const auth = useAuth();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(email);
+  const handleLogin = () => {
+    auth.login(user);
+    navigate("/");
   };
 
   return (
-    <div className="container">
-      <form className="form" onSubmit={handleSubmit}>
-        <label htmlFor="email">email</label>
-        <input
-          value={email}
-          type="email"
-          placeholder="Enter your email"
-          id="email"
-          name="email"
-        />
-        <label htmlFor="password">password</label>
-        <input
-          value={pass}
-          type="password"
-          placeholder="*********"
-          id="password"
-          name="password"
-        />
-
-        <button type="submit">Log In</button>
-      </form>
-      <button className="btn2" onClick={() => props.onFormSwitch("register")}>
-        Don't have an account? Register here.
-      </button>
+    <div>
+      <label>
+        Username:{" "}
+        <input type="text" onChange={(e) => setUser(e.target.value)} />
+      </label>
+      <label>
+        Password:{" "}
+        <input type="password" onChange={(e) => setUser(e.target.value)} />
+      </label>
+      <button onClick={handleLogin}>Login</button>
     </div>
   );
-}
-
-export default Login;
+};
