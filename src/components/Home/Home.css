@@ -1,0 +1,29 @@
+/* Bendri stiliai */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: sans-serif;
+  }
+  
+  div {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  
+  /* Stiliai footer */
+  footer {
+    text-align: center;
+    font-size: 14px;
+    font-style: italic;
+    color: #999;
+    margin-top: 40px;
+    padding: 10px;
+    border-top: 1px solid #999;
+  }
+  

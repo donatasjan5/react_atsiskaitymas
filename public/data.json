@@ -1,0 +1,30 @@
+{
+    "prekes": [
+      {
+        "id": 1,
+        "aprasymas": "iPhone 12",
+        "kaina": 999
+      },
+      {
+        "id": 2,
+        "aprasymas": "Samsung Galaxy S21",
+        "kaina": 899
+      },
+      {
+        "id": 3,
+        "aprasymas": "Google Pixel 5",
+        "kaina": 699
+      },
+      {
+        "id": 4,
+        "aprasymas": "Sony PlayStation 5",
+        "kaina": 499
+      },
+      {
+        "id": 5,
+        "aprasymas": "Microsoft Xbox Series X",
+        "kaina": 499
+      }
+    ]
+  }
+  

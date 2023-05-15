@@ -32,7 +32,7 @@ function Login(props) {
 
         <button type="submit">Log In</button>
       </form>
-      <button onClick={() => props.onFormSwitch("register")}>
+      <button className="btn2" onClick={() => props.onFormSwitch("register")}>
         Don't have an account? Register here.
       </button>
     </div>
