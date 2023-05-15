@@ -49,6 +49,18 @@ function Register(props) {
           className="input"
         />
 
+        <label htmlFor="password" className="label">
+          Password Confirmation
+        </label>
+        <input
+          value={pass}
+          type="password"
+          placeholder="*********"
+          id="password"
+          name="password"
+          className="input"
+        />
+
         <button type="submit" className="button">
           Register
         </button>
