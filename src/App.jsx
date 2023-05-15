@@ -4,13 +4,22 @@ import "./App.css";
 import { Login } from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Home from "./components/Home/Home";
-import Add from "./Add/Add";
+import Add from "./components/Add/Add";
 import NavBar from "./components/NavBar/NavBar";
 
 import { AuthProvider } from "./components/auth/Auth";
-import { Profile } from "./components/Profile/Profile";
+// import { useNavigate } from "react-router-dom";
 
 const App = () => {
+  // const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   const isLoggedIn = localStorage.getItem("isLoggedIn");
+  //   if (!isLoggedIn) {
+  //     navigate();
+  //   }
+  // }, [navigate]);
+
   const [currentForm, setCurrentForm] = useState("login");
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -53,7 +62,6 @@ const App = () => {
           />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home items={items} loading={loading} />} />
-          {/* <Route path="/profile" element={<Profile />} /> */}
           <Route path="/add" element={<Add onAdd={handleAddItems} />} />
         </Routes>
       </AuthProvider>
